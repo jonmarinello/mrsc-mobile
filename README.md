@@ -1,2 +1,2 @@
-# misc-ionic
-MRSC Ionic iOS Application
+# MRSC-Mobile
+MRSC Mobile Application
