@@ -1,1 +1,63 @@
-/* Empty. Add your own CSS if you like */
+.title {
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.card h2, .card p {
+  padding-bottom: 1em;
+}
+
+.portfolio-image,
+.index-image,
+.service-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.index-image {
+  width: 100px;
+}
+
+.service-image {
+  width: 200px;
+}
+
+.img-circle {
+  border-radius: 50%;
+}
+
+.recommendation-image {
+  border-radius: 50%;
+  width: 128px;
+  float: left;
+  margin: 10px 20px 10px 10px;
+}
+
+.de-emphasized {
+  color: #444; font-size: 0.7em;
+}
+
+.ion-email,
+.ion-social-skype,
+.ion-social-facebook,
+.ion-social-twitter,
+.ion-social-googleplus,
+.ion-social-linkedin,
+.ion-social-octocat {
+  font-size: 25px;
+}
+
+.social-media {
+  text-align: center;
+}
+
+.social-media-icons {
+  justify-content: center;
+}
+
+.contact-button {
+  width: 150px;
+  font-size: 1.5em;
+  font-family: "Helvetica Neue", "Roboto", "Segoe UI", sans-serif
+}

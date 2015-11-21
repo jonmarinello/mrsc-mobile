@@ -1,0 +1,66 @@
+<ion-view view-title="About Us">
+  <ion-content class="padding">
+    <h3 class="title">
+      Who we are & what people are saying about us
+    </h3>
+    <p>
+      We're based in beautiful Santa Barbara, California and our mission is to provide you with very highest quality
+      consulting services delivered per specification, on time, every time.
+    </p>
+    <p>
+      We are dedicated to helping you achieve greater success by providing targeted technical education, improving your
+      overall level of Engineering Excellence as well as directly contributing to the development of your products and
+      services. Your success and satisfaction is what makes or breaks our business.
+    </p>
+    <p>
+      Mission Ridge Software Consulting LLC is a sole proprietorship owned and operated by Jon Marinello. However,
+      from time-to-time we may bring additional resources to bear on a project depending on urgency and project
+      complexity.
+    </p>
+
+    <h3 class="title">
+      About Me
+    </h3>
+    <div class="card padding">
+      <a href="#" onclick="window.open('http://www.linkedin.com/in/jonmarinello', '_system', 'location=yes'); return false;">
+        <img src="img/jonmarinello.jpg" class="recommendation-image">
+      </a>
+      <p>
+        Hi, I'm Jon Marinello, the founder and CTO of Mission Ridge Software Consulting LLC which began operations in 2011.
+        I have over 30 years of experience developing highly scalable, reliable and available software systems
+        in use today by tens of millions of subscribers. I have held senior level positions at Borland, Unisys,
+        Callwave, United Online (NetZero & Juno) and Microsoft.
+      </p>
+      <p>
+        Currently, I prefer to work in Ruby on Rails. Its a wonderful platform that allows you to get
+        the most bang for your buck and supports all the latest and greatest web-related technologies. This is my
+        passion and I love building "responsive" web applications.
+      </p>
+      <p>
+        <strong>
+          Click
+          <a href="#" onclick="window.open('http://www.linkedin.com/in/jonmarinello', '_system', 'location=yes'); return false;">here</a>
+          to see the details of all my qualifications on LinkedIn.
+        </strong>
+      </p>
+      <p>
+        Since forming Mission Ridge Software Consulting LLC, I've worked with several companies and they have had a lot of
+        great things to say about the services Mission Ridge Software Consulting LLC provided.
+      </p>
+    </div>
+
+    <h3 class="title">
+      Customer Recommendations
+    </h3>
+    <ion-list ng-repeat="recommendation in recommendations">
+      <div class="card padding">
+        <img class="recommendation-image" ng-src="{{recommendation.image_url}}">
+        <h4>{{recommendation.title}}</h4>
+        <p>
+          {{recommendation.body}}
+        </p>
+      </div>
+    </ion-list>
+
+  </ion-content>
+</ion-view>

@@ -1,28 +1,41 @@
-angular.module('starter.controllers', [])
+angular.module('mrsc.controllers', [])
 
-.controller('DashCtrl', function($scope) {})
-
-.controller('ChatsCtrl', function($scope, Chats) {
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
-
-  $scope.chats = Chats.all();
-  $scope.remove = function(chat) {
-    Chats.remove(chat);
-  };
+.controller('HomeCtrl', function($scope) {
 })
 
-.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
-  $scope.chat = Chats.get($stateParams.chatId);
+.controller('ServicesCtrl', function($scope, $ionicSlideBoxDelegate) {
 })
 
-.controller('AccountCtrl', function($scope) {
-  $scope.settings = {
-    enableFriends: true
+.controller('AboutCtrl', function($scope, $http, $ionicLoading) {
+  $scope.show = function () {
+    $ionicLoading.show({
+      template: '<p>Loading...</p><ion-spinner></ion-spinner>'
+    });
   };
+
+  $scope.hide = function () {
+    $ionicLoading.hide();
+  };
+
+  $scope.show($ionicLoading);
+  $http.get('http://www.missionridgeconsulting.com/pages/get_recommendations.json').then(function(resp) {
+    $scope.recommendations = resp.data;
+    $scope.hide($ionicLoading);
+  }, function(err) {
+    // If we can't get the recommendations, use this hard coded one (useful for testing during "ionic serve" due to
+    // CSRF issues.
+    $scope.recommendations = [
+      {"title":"Fredrik Björk - Vice President of Engineering at The RealReal, November 21, 2015", "body":"Jon is an excellent software engineer who integrates well with existing teams. Jon is easy going, a good listener and understands the needs of the business. I would recommend Jon to anyone looking for a seasoned Ruby on Rails engineer who can hit the ground running for a mission critical project.", "image_url":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/8/000/227/1a5/09b5b2c.jpg"}
+    ];
+    $scope.hide($ionicLoading);
+  })
+})
+
+.controller('PortfolioCtrl', function($scope) {
+})
+
+.controller('ContactCtrl', function($scope) {
+})
+
+.controller('StartCtrl', function($scope) {
 });
