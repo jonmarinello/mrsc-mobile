@@ -37,10 +37,26 @@ angular.module('mrsc.controllers', [])
 .controller('ContactCtrl', function($scope) {
 })
 
-.controller('StartAProjectCtrl', function($scope) {
-  $scope.startAProject = function(form) {
-    if (form.$valid) {
-      console.log(form)
+.controller('StartAProjectCtrl', function($scope, $http, $ionicLoading) {
+  $scope.show = function () {
+    $ionicLoading.show({
+      template: '<p>Loading...</p><ion-spinner></ion-spinner>'
+    });
+  };
+
+  $scope.hide = function () {
+    $ionicLoading.hide();
+  };
+
+  $scope.startAProject = function(startAProjectForm) {
+    $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
+    if (startAProjectForm.$valid) {
+      $http.post('http://www.missionridgeconsulting.com/pages/start_a_project', startAProjectForm).then(function(resp) {
+        $scope.hide($ionicLoading);
+      }, function(err) {
+        $scope.hide($ionicLoading);
+      })
+
     }
   };
 });
