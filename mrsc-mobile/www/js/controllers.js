@@ -37,5 +37,5 @@ angular.module('mrsc.controllers', [])
 .controller('ContactCtrl', function($scope) {
 })
 
-.controller('StartCtrl', function($scope) {
+.controller('StartAProjectCtrl', function($scope) {
 });

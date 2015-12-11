@@ -84,12 +84,12 @@ angular.module('mrsc', ['ionic', 'mrsc.controllers'])
     }
   })
 
-  .state('tab.start', {
-    url: '/start',
+  .state('tab.start-a-project', {
+    url: '/start-a-project',
     views: {
-      'tab-start': {
-        templateUrl: 'templates/tab-start.html',
-        controller: 'StartCtrl'
+      'tab-start-a-project': {
+        templateUrl: 'templates/tab-start-a-project.html',
+        controller: 'StartAProjectCtrl'
       }
     }
   });
