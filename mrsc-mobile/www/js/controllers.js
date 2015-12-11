@@ -38,4 +38,9 @@ angular.module('mrsc.controllers', [])
 })
 
 .controller('StartAProjectCtrl', function($scope) {
+  $scope.startAProject = function(form) {
+    if (form.$valid) {
+      console.log(form)
+    }
+  };
 });
