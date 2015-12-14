@@ -6,10 +6,13 @@
 
     <div class="row responsive-sm">
       <div class="col">
-        <a href="mailto:jonmarinello@gmail.com">
-          <button class="button icon-left ion-email button-positive contact-button">Email</button>
+        <a href="#" onclick="window.open('mailto:jonmarinello@gmail.com', '_system', 'location=yes'); return false;">
+          <div class="button icon-left ion-email button-positive contact-button">
+            Email
+          </div>
         </a>
       </div>
+
       <div class="col">
         <a href="#" onclick="window.open('skype:jon.marinello.mrsc?chat', '_system', 'location=yes'); return false;">
           <div class="button icon-left ion-social-skype button-calm contact-button">
@@ -17,8 +20,17 @@
           </div>
         </a>
       </div>
+
       <div class="col">
+        <!--Following code works on iOS but not Android-->
         <a href="tel:(805) 705-7929" class="button icon-left ion-ios-telephone button-dark contact-button">Call</a>
+        <!--TODO: Get call button working on Android-->
+        <!--Following code works on Android but not iOS-->
+        <!--<a href="#" onclick="window.open('tel:(805) 705-7929', '_system', 'location=yes'); return false;">-->
+          <!--<div class="button icon-left ion-ios-telephone button-dark contact-button">-->
+            <!--Call-->
+          <!--</div>-->
+        <!--</a>-->
       </div>
     </div>
 
@@ -34,8 +46,7 @@
         Santa Barbara, CA 93103
       </div>
     </div>
-  </div>
-  <div class="col">
+
     <div class="card">
       <div class="item item-divider">
         Map
@@ -47,5 +58,6 @@
         </div>
       </div>
     </div>
+
   </ion-content>
 </ion-view>
