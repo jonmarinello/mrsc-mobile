@@ -97,4 +97,7 @@ angular.module('mrsc', ['ionic', 'mrsc.controllers'])
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/home');
 
-});
+})
+
+.constant('DOMAIN', 'http://staging.missionridgeconsulting.com');
+//.constant('DOMAIN', 'http://www.missionridgeconsulting.com');

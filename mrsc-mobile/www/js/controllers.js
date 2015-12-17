@@ -6,9 +6,9 @@ angular.module('mrsc.controllers', [])
 .controller('ServicesCtrl', function($scope, $ionicSlideBoxDelegate) {
 })
 
-.controller('AboutCtrl', function($scope, $http, $ionicLoading) {
+.controller('AboutCtrl', function($scope, DOMAIN, $http, $ionicLoading) {
   $ionicLoading.show({template: '<p>Loading...</p><ion-spinner></ion-spinner>'});
-  $http.get('http://www.missionridgeconsulting.com/pages/get_recommendations.json').then(function(resp) {
+  $http.get(DOMAIN + '/pages/get_recommendations.json').then(function(resp) {
     $scope.recommendations = resp.data;
     $ionicLoading.hide();
   }, function(err) {
@@ -27,12 +27,12 @@ angular.module('mrsc.controllers', [])
 .controller('ContactCtrl', function($scope) {
 })
 
-.controller('StartAProjectCtrl', function($scope, $http, $ionicLoading) {
+.controller('StartAProjectCtrl', function($scope, DOMAIN, $http, $ionicLoading) {
   $scope.startAProject = function(startAProjectForm) {
     $ionicLoading.show({template: '<p>Saving...</p><ion-spinner></ion-spinner>'});
     $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
     if (startAProjectForm.$valid) {
-      $http.post('http://www.missionridgeconsulting.com/pages/start_a_project', startAProjectForm).then(function(resp) {
+      $http.post(DOMAIN + '/pages/start_a_project', startAProjectForm).then(function(resp) {
         $ionicLoading.hide();
       }, function(err) {
         $ionicLoading.hide();
