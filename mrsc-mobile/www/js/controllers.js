@@ -7,27 +7,17 @@ angular.module('mrsc.controllers', [])
 })
 
 .controller('AboutCtrl', function($scope, $http, $ionicLoading) {
-  $scope.show = function () {
-    $ionicLoading.show({
-      template: '<p>Loading...</p><ion-spinner></ion-spinner>'
-    });
-  };
-
-  $scope.hide = function () {
-    $ionicLoading.hide();
-  };
-
-  $scope.show($ionicLoading);
+  $ionicLoading.show({template: '<p>Loading...</p><ion-spinner></ion-spinner>'});
   $http.get('http://www.missionridgeconsulting.com/pages/get_recommendations.json').then(function(resp) {
     $scope.recommendations = resp.data;
-    $scope.hide($ionicLoading);
+    $ionicLoading.hide();
   }, function(err) {
     // If we can't get the recommendations, use this hard coded one (useful for testing during "ionic serve" due to
     // CSRF issues.
     $scope.recommendations = [
       {"title":"Fredrik Björk - Vice President of Engineering at The RealReal, November 21, 2015", "body":"Jon is an excellent software engineer who integrates well with existing teams. Jon is easy going, a good listener and understands the needs of the business. I would recommend Jon to anyone looking for a seasoned Ruby on Rails engineer who can hit the ground running for a mission critical project.", "image_url":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/8/000/227/1a5/09b5b2c.jpg"}
     ];
-    $scope.hide($ionicLoading);
+    $ionicLoading.hide();
   })
 })
 
@@ -38,23 +28,14 @@ angular.module('mrsc.controllers', [])
 })
 
 .controller('StartAProjectCtrl', function($scope, $http, $ionicLoading) {
-  $scope.show = function () {
-    $ionicLoading.show({
-      template: '<p>Loading...</p><ion-spinner></ion-spinner>'
-    });
-  };
-
-  $scope.hide = function () {
-    $ionicLoading.hide();
-  };
-
   $scope.startAProject = function(startAProjectForm) {
+    $ionicLoading.show({template: '<p>Saving...</p><ion-spinner></ion-spinner>'});
     $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
     if (startAProjectForm.$valid) {
       $http.post('http://www.missionridgeconsulting.com/pages/start_a_project', startAProjectForm).then(function(resp) {
-        $scope.hide($ionicLoading);
+        $ionicLoading.hide();
       }, function(err) {
-        $scope.hide($ionicLoading);
+        $ionicLoading.hide();
       })
 
     }
