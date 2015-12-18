@@ -99,5 +99,6 @@ angular.module('mrsc', ['ionic', 'mrsc.controllers'])
 
 })
 
+//.constant('DOMAIN', 'http://localhost:3000');
 .constant('DOMAIN', 'http://staging.missionridgeconsulting.com');
 //.constant('DOMAIN', 'http://www.missionridgeconsulting.com');
