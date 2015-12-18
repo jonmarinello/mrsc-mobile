@@ -32,10 +32,10 @@ angular.module('mrsc.controllers', [])
     $ionicLoading.show({template: '<p>Saving...</p><ion-spinner></ion-spinner>'});
     $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
     if (potential_project.$valid) {
-      $http.post(DOMAIN + '/pages/start_a_project', potential_project).then(function(resp) {
+      $http.post(DOMAIN + '/pages/start_a_project', potential_project).then(function(response) {
         $ionicLoading.hide();
         alert('Your project request have been successfully saved and a notification has been sent.')
-      }, function(err) {
+      }, function(response) {
         $ionicLoading.hide();
         alert('We were unable to save your request.')
       })
