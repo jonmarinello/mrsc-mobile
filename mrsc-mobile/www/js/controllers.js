@@ -28,11 +28,11 @@ angular.module('mrsc.controllers', [])
 })
 
 .controller('StartAProjectCtrl', function($scope, DOMAIN, $http, $ionicLoading) {
-  $scope.startAProject = function(startAProjectForm) {
+  $scope.startAProject = function(potential_project) {
     $ionicLoading.show({template: '<p>Saving...</p><ion-spinner></ion-spinner>'});
     $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
-    if (startAProjectForm.$valid) {
-      $http.post(DOMAIN + '/pages/start_a_project', startAProjectForm).then(function(resp) {
+    if (potential_project.$valid) {
+      $http.post(DOMAIN + '/pages/start_a_project', potential_project).then(function(resp) {
         $ionicLoading.hide();
       }, function(err) {
         $ionicLoading.hide();

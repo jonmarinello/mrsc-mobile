@@ -9,27 +9,27 @@
       you to discuss your ideas in short order. All the information provided below will be kept strictly confidential and
       does not imply any agreement between us. Its just a starting point for a discussion.
     </p>
-    <form name="startAProjectForm" ng-submit="startAProject(startAProjectForm)">
+    <form name="potential_project" ng-submit="startAProject(potential_project)">
       <div class="list">
         <label class="item item-input item-stacked-label">
           <span class="input-label">Name</span>
-          <input type="text" name="name" placeholder="Roger Eaton">
+          <input type="text" ng-model="potential_project.name" placeholder="Roger Eaton">
         </label>
         <label class="item item-input item-stacked-label">
           <span class="input-label">Email Address</span>
-          <input type="email" name="email" placeholder="roger@eaton.com">
+          <input type="email" ng-model="potential_project.email" placeholder="roger@eaton.com">
         </label>
         <label class="item item-input item-stacked-label">
           <span class="input-label">Phone Number</span>
-          <input type="tel" name="phone" placeholder="8055551212">
+          <input type="tel" ng-model="potential_project.phone" placeholder="8055551212">
         </label>
         <label class="item item-input item-stacked-label">
           <span class="input-label">Company Name</span>
-          <input type="text" name="company_name" placeholder="ACME Inc.">
+          <input type="text" ng-model="potential_project.company_name" placeholder="ACME Inc.">
         </label>
         <label class="item item-input item-stacked-label">
           <span class="input-label">Project Idea</span>
-          <textarea name="project_idea" placeholder="I would like to have you build us a website and mobile application."></textarea>
+          <textarea ng-model="potential_project.project_idea" placeholder="I would like to have you build us a website and mobile application."></textarea>
         </label>
         <h5>
           Project Type (Select all that apply):
@@ -37,35 +37,35 @@
         <ul class="list">
           <li class="item item-checkbox">
             <label class="checkbox">
-              <input type="checkbox" name="type_ruby_on_rails_web_development">
+              <input type="checkbox" ng-model="potential_project.type_ruby_on_rails_web_development">
             </label>
             Ruby on Rails Web Development
           </li>
           <li class="item item-checkbox">
             <label class="checkbox">
-              <input type="checkbox" name="type_mobile_app_development">
+              <input type="checkbox" ng-model="potential_project.type_mobile_app_development">
             </label>
             Mobile App Development
           </li>
           <li class="item item-checkbox">
             <label class="checkbox">
-              <input type="checkbox" name="type_cms_web_development">
+              <input type="checkbox" ng-model="potential_project.type_cms_web_development">
             </label>
             CMS Web Development
           </li>
           <li class="item item-checkbox">
             <label class="checkbox">
-              <input type="checkbox" name="type_everything_cloud">
+              <input type="checkbox" ng-model="potential_project.type_everything_cloud">
             </label>
             Everything Cloud
           </li>
-          <li class="item item-checkbox" name="type_ux_prototyping">
+          <li class="item item-checkbox" ng-model="potential_project.type_ux_prototyping">
             <label class="checkbox">
               <input type="checkbox">
             </label>
             User Experience Prototyping
           </li>
-          <li class="item item-checkbox" name="type_agile_development">
+          <li class="item item-checkbox" ng-model="potential_project.type_agile_development">
             <label class="checkbox">
               <input type="checkbox">
             </label>
@@ -73,27 +73,27 @@
           </li>
           <li class="item item-checkbox">
             <label class="checkbox">
-              <input type="checkbox" name="type_other">
+              <input type="checkbox" ng-model="potential_project.type_other">
             </label>
             Other
           </li>
         </ul>
         <label class="item item-input item-stacked-label">
           <span class="input-label">Additional Information</span>
-          <textarea name="additional_info" placeholder="We are a small startup company so cost is a factor for us."></textarea>
+          <textarea ng-model="potential_project.additional_info" placeholder="We are a small startup company so cost is a factor for us."></textarea>
         </label>
         <label class="item item-input item-stacked-label">
           <span class="input-label">Starting Timeframe</span>
-          <input type="text" name="start_timeframe" placeholder="Within the next 30-45 days.">
+          <input type="text" ng-model="potential_project.start_timeframe" placeholder="Within the next 30-45 days.">
         </label>
         <label class="item item-input item-stacked-label">
           <span class="input-label">How You Heard About Us</span>
-          <input type="text" name="heard_about_us" placeholder="Business referral.">
+          <input type="text" ng-model="potential_project.heard_about_us" placeholder="Business referral.">
         </label>
         <ul class="list">
           <li class="item item-checkbox">
             <label class="checkbox">
-              <input type="checkbox" name="type_ruby_on_rails_web_development">
+              <input type="checkbox" ng-model="potential_project.type_ruby_on_rails_web_development">
             </label>
             Keep me updated with Mission Ridge Software Consulting news
           </li>
