@@ -34,8 +34,10 @@ angular.module('mrsc.controllers', [])
     if (potential_project.$valid) {
       $http.post(DOMAIN + '/pages/start_a_project', potential_project).then(function(resp) {
         $ionicLoading.hide();
+        alert('Your project request have been successfully saved and a notification has been sent.')
       }, function(err) {
         $ionicLoading.hide();
+        alert('We were unable to save your request.')
       })
 
     }
