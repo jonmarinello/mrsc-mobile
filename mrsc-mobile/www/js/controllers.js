@@ -32,17 +32,20 @@ angular.module('mrsc.controllers', [])
   };
 
   $scope.startAProject = function(startAProjectForm) {
-    $ionicLoading.show({template: '<p>Saving...</p><ion-spinner></ion-spinner>'});
-    $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
     if (startAProjectForm.$valid) {
+      $ionicLoading.show({template: '<p>Saving...</p><ion-spinner></ion-spinner>'});
+
+      $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
+
       var rails_ready_potential_project = {
         potential_project: $scope.potential_project
       };
+
       $http.post(DOMAIN + '/pages/mobile_start_a_project', $httpParamSerializerJQLike(rails_ready_potential_project)).then(function(response) {
         $ionicLoading.hide();
         var alertPopup = $ionicPopup.alert({
           title: 'Mission Ridge Software Consulting',
-          template: '<p>Your project request has been successfully saved and a notification has been sent to us. We will contact you soon too discuss it.</p>'
+          template: '<p>Your project request has been successfully saved and a notification has been sent to us.</p><p>We will contact you soon too discuss it.</p><p>Thank you for contacting us!</p>'
         });
         $location.path("/home");
       }, function(response) {

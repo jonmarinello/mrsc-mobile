@@ -11,26 +11,40 @@
     </p>
     <form name="startAProjectForm" ng-submit="startAProject(startAProjectForm)">
       <div class="list">
-        <label class="item item-input item-stacked-label">
-          <span class="input-label">Name</span>
-          <input type="text" ng-model="potential_project.name" placeholder="Roger Eaton">
+        <label class="item item-input item-stacked-label" ng-class="{ 'has-errors' : startAProjectForm.name.$invalid, 'no-errors' : startAProjectForm.name.$valid}">
+          <span class="input-label">Name *</span>
+          <input type="text" name="name" ng-model="potential_project.name" placeholder="Roger Eaton" ng-minlength="3" ng-maxlength="255" required>
         </label>
-        <label class="item item-input item-stacked-label">
-          <span class="input-label">Email Address</span>
-          <input type="email" ng-model="potential_project.email" placeholder="roger@eaton.com">
+        <div class="error-container last-error-container" ng-show="startAProjectForm.name.$error && startAProjectForm.$submitted" ng-messages="startAProjectForm.name.$error">
+          <div ng-messages-include="error-list.html"></div>
+        </div>
+
+        <label class="item item-input item-stacked-label" ng-class="{ 'has-errors' : startAProjectForm.email.$invalid, 'no-errors' : startAProjectForm.email.$valid}">
+          <span class="input-label">Email Address *</span>
+          <input type="email" name="email" ng-model="potential_project.email" placeholder="roger@eaton.com" ng-minlength="5" ng-maxlength="255" required>
         </label>
+        <div class="error-container last-error-container" ng-show="startAProjectForm.email.$error && startAProjectForm.$submitted" ng-messages="startAProjectForm.email.$error">
+          <div ng-messages-include="error-list.html"></div>
+        </div>
+
         <label class="item item-input item-stacked-label">
           <span class="input-label">Phone Number</span>
           <input type="tel" ng-model="potential_project.phone" placeholder="8055551212">
         </label>
+
         <label class="item item-input item-stacked-label">
           <span class="input-label">Company Name</span>
           <input type="text" ng-model="potential_project.company_name" placeholder="ACME Inc.">
         </label>
-        <label class="item item-input item-stacked-label">
-          <span class="input-label">Project Idea</span>
-          <textarea ng-model="potential_project.project_idea" placeholder="I would like to have you build us a website and mobile application."></textarea>
+
+        <label class="item item-input item-stacked-label" ng-class="{ 'has-errors' : startAProjectForm.project_idea.$invalid, 'no-errors' : startAProjectForm.project_idea.$valid}">
+          <span class="input-label">Project Idea *</span>
+          <textarea name="project_idea" ng-model="potential_project.project_idea" placeholder="I would like to have you build us a website and mobile application." ng-minlength="3" ng-maxlength="1024" required></textarea>
         </label>
+        <div class="error-container last-error-container" ng-show="startAProjectForm.project_idea.$error && startAProjectForm.$submitted" ng-messages="startAProjectForm.project_idea.$error">
+          <div ng-messages-include="error-list.html"></div>
+        </div>
+
         <h5>
           Project Type (Select all that apply):
         </h5>
@@ -41,36 +55,42 @@
             </label>
             Ruby on Rails Web Development
           </li>
+
           <li class="item item-checkbox">
             <label class="checkbox">
               <input type="checkbox" ng-model="potential_project.type_mobile_app_development">
             </label>
             Mobile App Development
           </li>
+
           <li class="item item-checkbox">
             <label class="checkbox">
               <input type="checkbox" ng-model="potential_project.type_cms_web_development">
             </label>
             CMS Web Development
           </li>
+
           <li class="item item-checkbox">
             <label class="checkbox">
               <input type="checkbox" ng-model="potential_project.type_everything_cloud">
             </label>
             Everything Cloud
           </li>
+
           <li class="item item-checkbox">
             <label class="checkbox">
               <input type="checkbox" ng-model="potential_project.type_ux_prototyping">
             </label>
             User Experience Prototyping
           </li>
+
           <li class="item item-checkbox">
             <label class="checkbox">
               <input type="checkbox" ng-model="potential_project.type_agile_development">
             </label>
             Agile Development
           </li>
+
           <li class="item item-checkbox">
             <label class="checkbox">
               <input type="checkbox" ng-model="potential_project.type_other">
@@ -78,18 +98,22 @@
             Other
           </li>
         </ul>
+
         <label class="item item-input item-stacked-label">
           <span class="input-label">Additional Information</span>
           <textarea ng-model="potential_project.additional_info" placeholder="We are a small startup company so cost is a factor for us."></textarea>
         </label>
+
         <label class="item item-input item-stacked-label">
           <span class="input-label">Starting Timeframe</span>
           <input type="text" ng-model="potential_project.start_timeframe" placeholder="Within the next 30-45 days.">
         </label>
+
         <label class="item item-input item-stacked-label">
           <span class="input-label">How You Heard About Us</span>
           <input type="text" ng-model="potential_project.heard_about_us" placeholder="Business referral.">
         </label>
+
         <ul class="list">
           <li class="item item-checkbox">
             <label class="checkbox">
@@ -98,6 +122,7 @@
             Keep me updated with Mission Ridge Software Consulting news
           </li>
         </ul>
+
         <button class="button button-block button-positive" type="submit">
           Submit
         </button>

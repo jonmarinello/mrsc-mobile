@@ -1,5 +1,5 @@
 // Ionic MRSC App
-angular.module('mrsc', ['ionic', 'mrsc.controllers'])
+angular.module('mrsc', ['ionic', 'mrsc.controllers', 'ngMessages'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
