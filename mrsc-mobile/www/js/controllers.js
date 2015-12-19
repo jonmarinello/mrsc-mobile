@@ -36,7 +36,7 @@ angular.module('mrsc.controllers', [])
 
 .controller('StartAProjectCtrl', function($scope, DOMAIN, $http, $ionicLoading, $httpParamSerializerJQLike, $location, $ionicPopup) {
   // Initialize the form's model
-  $scope.potential_project = {
+  $scope.potentialProject = {
   };
 
   $scope.startAProject = function(startAProjectForm) {
@@ -46,15 +46,15 @@ angular.module('mrsc.controllers', [])
       $ionicLoading.show({template: '<p>Saving...</p><ion-spinner></ion-spinner>'});
 
       // Next the form's model in the required rails object
-      var rails_ready_potential_project = {
-        potential_project: $scope.potential_project
+      var railsReadyPotentialProject = {
+        potential_project: $scope.potentialProject
       }
 
       // Set content type
       $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
 
       // Post to the server
-      $http.post(DOMAIN + '/pages/mobile_start_a_project', $httpParamSerializerJQLike(rails_ready_potential_project)).then(function(response) {
+      $http.post(DOMAIN + '/pages/mobile_start_a_project', $httpParamSerializerJQLike(railsReadyPotentialProject)).then(function(response) {
         // Hide the busy indicator
         $ionicLoading.hide();
 
