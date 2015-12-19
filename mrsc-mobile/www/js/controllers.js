@@ -28,18 +28,20 @@ angular.module('mrsc.controllers', [])
 })
 
 .controller('StartAProjectCtrl', function($scope, DOMAIN, $http, $ionicLoading) {
-  $scope.startAProject = function(potential_project) {
+  $scope.potential_project = {
+  };
+
+  $scope.startAProject = function(startAProjectForm) {
     $ionicLoading.show({template: '<p>Saving...</p><ion-spinner></ion-spinner>'});
     $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
-    if (potential_project.$valid) {
-      $http.post(DOMAIN + '/pages/mobile_start_a_project', potential_project).then(function(response) {
+    if (startAProjectForm.$valid) {
+      $http.post(DOMAIN + '/pages/mobile_start_a_project', $scope.potential_project).then(function(response) {
         $ionicLoading.hide();
-        alert('Your project request have been successfully saved and a notification has been sent.')
+        alert('Your project request have been successfully saved and a notification has been sent.');
       }, function(response) {
         $ionicLoading.hide();
-        alert('We were unable to save your request.')
+        alert('We were unable to save your request.');
       })
-
-    }
+    };
   };
 });
