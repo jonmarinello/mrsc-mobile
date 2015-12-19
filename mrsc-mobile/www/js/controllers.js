@@ -73,6 +73,7 @@ angular.module('mrsc.controllers', [])
         // Tell the user it failed
         $ionicPopup.alert({
           title: 'Mission Ridge Software Consulting',
+          subTitle: '<h4>ERROR</h4>',
           template: '<p>An error occurred and we were unable to save your request.</p><p>Please try contacting us by email, calling or Skype.</p>'
         });
 
@@ -84,7 +85,8 @@ angular.module('mrsc.controllers', [])
       // Form validation failed so tell the user
       $ionicPopup.alert({
         title: 'Mission Ridge Software Consulting',
-        template: '<p>One or more errors found while validating your information.</p><p>Please be sure to enter at least a valid <strong>Name</strong>, <strong>Email Address</strong> and <strong>Project Idea</strong> and try again.</p>'
+        subTitle: '<h4>ERROR</h4>',
+        template: '<p><strong>One or more errors found while validating your information.</strong></p><p>Please be sure to enter at least a valid <strong>Name</strong>, <strong>Email Address</strong> and <strong>Project Idea</strong> and try again.</p>'
       });
     }
   }

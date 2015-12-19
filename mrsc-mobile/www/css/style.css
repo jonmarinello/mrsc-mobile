@@ -111,3 +111,8 @@
 .no-errors {
   border-bottom: 3px solid green;
 }
+
+/* $ionicPopup Mods */
+.popup-head {
+  background-color: burlywood;
+}
