@@ -35,7 +35,10 @@ angular.module('mrsc.controllers', [])
     $ionicLoading.show({template: '<p>Saving...</p><ion-spinner></ion-spinner>'});
     $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
     if (startAProjectForm.$valid) {
-      $http.post(DOMAIN + '/pages/mobile_start_a_project', $httpParamSerializerJQLike($scope.potential_project)).then(function(response) {
+      var rails_ready_potential_project = {
+        potential_project: $scope.potential_project
+      };
+      $http.post(DOMAIN + '/pages/mobile_start_a_project', $httpParamSerializerJQLike(rails_ready_potential_project)).then(function(response) {
         $ionicLoading.hide();
         alert('Your project request have been successfully saved and a notification has been sent.');
       }, function(response) {
