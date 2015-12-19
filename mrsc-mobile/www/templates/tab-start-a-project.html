@@ -9,25 +9,36 @@
       you to discuss your ideas in short order. All the information provided below will be kept strictly confidential and
       does not imply any agreement between us. Its just a starting point for a discussion.
     </p>
-    <p>
-      Note that <strong>Name</strong>, <strong>Email</strong> and <strong>Project Idea</strong> are required fields.
-    </p>
     <form name="startAProjectForm" ng-submit="startAProject(startAProjectForm)">
       <div class="list">
         <label class="item item-input item-stacked-label" ng-class="{ 'has-errors' : startAProjectForm.name.$invalid, 'no-errors' : startAProjectForm.name.$valid}">
           <span class="input-label">Name *</span>
-          <input type="text" name="name" ng-model="potential_project.name" placeholder="Roger Eaton" ng-minlength="3" ng-maxlength="255" required>
+          <input type="text" name="name" ng-model="potential_project.name" placeholder="Roger Eaton" ng-minlength="3" required>
         </label>
-        <div class="error-container last-error-container" ng-show="startAProjectForm.name.$error && startAProjectForm.$submitted" ng-messages="startAProjectForm.name.$error">
-          <div ng-messages-include="error-list.html"></div>
+        <div class="error-container" ng-show="startAProjectForm.name.$error" ng-messages="startAProjectForm.name.$error">
+          <div class="error" ng-message="required">
+            <i class="ion-information-circled"></i>
+            Your name is required.
+          </div>
+          <div class="error" ng-message="minlength">
+            <i class="ion-information-circled"></i>
+            Please enter at least 3 characters.
+          </div>
         </div>
 
         <label class="item item-input item-stacked-label" ng-class="{ 'has-errors' : startAProjectForm.email.$invalid, 'no-errors' : startAProjectForm.email.$valid}">
           <span class="input-label">Email Address *</span>
-          <input type="email" name="email" ng-model="potential_project.email" placeholder="roger@eaton.com" ng-minlength="5" ng-maxlength="255" required>
+          <input type="email" name="email" ng-model="potential_project.email" placeholder="roger@eaton.com" ng-minlength="5" required>
         </label>
-        <div class="error-container last-error-container" ng-show="startAProjectForm.email.$error && startAProjectForm.$submitted" ng-messages="startAProjectForm.email.$error">
-          <div ng-messages-include="error-list.html"></div>
+        <div class="error-container" ng-show="startAProjectForm.email.$error" ng-messages="startAProjectForm.email.$error">
+          <div class="error" ng-message="required">
+            <i class="ion-information-circled"></i>
+            Your email address is required.
+          </div>
+          <div class="error" ng-message="minlength">
+            <i class="ion-information-circled"></i>
+            Please enter at least 5 characters in the form name@domain.com.
+          </div>
         </div>
 
         <label class="item item-input item-stacked-label">
@@ -42,10 +53,17 @@
 
         <label class="item item-input item-stacked-label" ng-class="{ 'has-errors' : startAProjectForm.project_idea.$invalid, 'no-errors' : startAProjectForm.project_idea.$valid}">
           <span class="input-label">Project Idea *</span>
-          <textarea name="project_idea" ng-model="potential_project.project_idea" placeholder="I would like to have you build us a website and mobile application." ng-minlength="3" ng-maxlength="1024" required></textarea>
+          <textarea name="project_idea" ng-model="potential_project.project_idea" placeholder="I would like to have you build us a website and mobile application." ng-minlength="3" required></textarea>
         </label>
-        <div class="error-container last-error-container" ng-show="startAProjectForm.project_idea.$error && startAProjectForm.$submitted" ng-messages="startAProjectForm.project_idea.$error">
-          <div ng-messages-include="error-list.html"></div>
+        <div class="error-container last-error-container" ng-show="startAProjectForm.project_idea.$error" ng-messages="startAProjectForm.project_idea.$error">
+          <div class="error" ng-message="required">
+            <i class="ion-information-circled"></i>
+            Your project idea is required.
+          </div>
+          <div class="error" ng-message="minlength">
+            <i class="ion-information-circled"></i>
+            Please enter at least 3 characters.
+          </div>
         </div>
 
         <h5>
