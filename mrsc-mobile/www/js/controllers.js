@@ -27,7 +27,7 @@ angular.module('mrsc.controllers', [])
 .controller('ContactCtrl', function($scope) {
 })
 
-.controller('StartAProjectCtrl', function($scope, DOMAIN, $http, $ionicLoading, $httpParamSerializerJQLike) {
+.controller('StartAProjectCtrl', function($scope, DOMAIN, $http, $ionicLoading, $httpParamSerializerJQLike, $location, $ionicPopup) {
   $scope.potential_project = {
   };
 
@@ -40,10 +40,18 @@ angular.module('mrsc.controllers', [])
       };
       $http.post(DOMAIN + '/pages/mobile_start_a_project', $httpParamSerializerJQLike(rails_ready_potential_project)).then(function(response) {
         $ionicLoading.hide();
-        alert('Your project request have been successfully saved and a notification has been sent.');
+        var alertPopup = $ionicPopup.alert({
+          title: 'Mission Ridge Software Consulting',
+          template: 'Your project request have been successfully saved and a notification has been sent. We will contact you soon too discuss it.'
+        });
+        $location.path("/home");
       }, function(response) {
         $ionicLoading.hide();
-        alert('We were unable to save your request.');
+        var alertPopup = $ionicPopup.alert({
+          title: 'Mission Ridge Software Consulting',
+          template: 'An error orrured and we were unable to save your request.'
+        });
+        $location.path("/home");
       })
     };
   };
