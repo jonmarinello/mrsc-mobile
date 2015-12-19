@@ -49,7 +49,7 @@ angular.module('mrsc.controllers', [])
         $ionicLoading.hide();
         var alertPopup = $ionicPopup.alert({
           title: 'Mission Ridge Software Consulting',
-          template: 'An error orrured and we were unable to save your request.'
+          template: 'An error occurred and we were unable to save your request.'
         });
         $location.path("/home");
       })

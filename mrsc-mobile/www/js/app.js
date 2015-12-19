@@ -24,75 +24,73 @@ angular.module('mrsc', ['ionic', 'mrsc.controllers'])
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
   $stateProvider
-
-  // setup an abstract state for the tabs directive
+    // setup an abstract state for the tabs directive
     .state('tab', {
-    url: '/tab',
-    abstract: true,
-    templateUrl: 'templates/tabs.html'
-  })
+      url: '/tab',
+      abstract: true,
+      templateUrl: 'templates/tabs.html'
+    })
 
-  // Each tab has its own nav history stack:
-
-  .state('tab.home', {
-    url: '/home',
-    views: {
-      'tab-home': {
-        templateUrl: 'templates/tab-home.html',
-        controller: 'HomeCtrl'
-      }
-    }
-  })
-
-  .state('tab.services', {
-      url: '/services',
+    // Each tab has its own nav history stack:
+    .state('tab.home', {
+      url: '/home',
       views: {
-        'tab-services': {
-          templateUrl: 'templates/tab-services.html',
-          controller: 'ServicesCtrl'
+        'tab-home': {
+          templateUrl: 'templates/tab-home.html',
+          controller: 'HomeCtrl'
         }
       }
     })
 
-  .state('tab.about', {
-    url: '/about',
-    views: {
-      'tab-about': {
-        templateUrl: 'templates/tab-about.html',
-        controller: 'AboutCtrl'
-      }
-    }
-  })
+    .state('tab.services', {
+        url: '/services',
+        views: {
+          'tab-services': {
+            templateUrl: 'templates/tab-services.html',
+            controller: 'ServicesCtrl'
+          }
+        }
+      })
 
-  .state('tab.portfolio', {
-    url: '/portfolio',
-    views: {
-      'tab-portfolio': {
-        templateUrl: 'templates/tab-portfolio.html',
-        controller: 'PortfolioCtrl'
+    .state('tab.about', {
+      url: '/about',
+      views: {
+        'tab-about': {
+          templateUrl: 'templates/tab-about.html',
+          controller: 'AboutCtrl'
+        }
       }
-    }
-  })
+    })
 
-  .state('tab.contact', {
-    url: '/contact',
-    views: {
-      'tab-contact': {
-        templateUrl: 'templates/tab-contact.html',
-        controller: 'ContactCtrl'
+    .state('tab.portfolio', {
+      url: '/portfolio',
+      views: {
+        'tab-portfolio': {
+          templateUrl: 'templates/tab-portfolio.html',
+          controller: 'PortfolioCtrl'
+        }
       }
-    }
-  })
+    })
 
-  .state('tab.start-a-project', {
-    url: '/start-a-project',
-    views: {
-      'tab-start-a-project': {
-        templateUrl: 'templates/tab-start-a-project.html',
-        controller: 'StartAProjectCtrl'
+    .state('tab.contact', {
+      url: '/contact',
+      views: {
+        'tab-contact': {
+          templateUrl: 'templates/tab-contact.html',
+          controller: 'ContactCtrl'
+        }
       }
-    }
-  });
+    })
+
+    .state('tab.start-a-project', {
+      url: '/start-a-project',
+      views: {
+        'tab-start-a-project': {
+          templateUrl: 'templates/tab-start-a-project.html',
+          controller: 'StartAProjectCtrl'
+        }
+      }
+    });
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/home');
