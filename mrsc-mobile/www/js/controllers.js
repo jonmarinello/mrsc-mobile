@@ -42,16 +42,16 @@ angular.module('mrsc.controllers', [])
         $ionicLoading.hide();
         var alertPopup = $ionicPopup.alert({
           title: 'Mission Ridge Software Consulting',
-          template: 'Your project request have been successfully saved and a notification has been sent. We will contact you soon too discuss it.'
+          template: '<p>Your project request has been successfully saved and a notification has been sent to us. We will contact you soon too discuss it.</p>'
         });
         $location.path("/home");
       }, function(response) {
         $ionicLoading.hide();
         var alertPopup = $ionicPopup.alert({
           title: 'Mission Ridge Software Consulting',
-          template: 'An error occurred and we were unable to save your request.'
+          template: '<p>An error occurred and we were unable to save your request.</p><p>Please try contacting us by email, calling or Skype.</p>',
         });
-        $location.path("/home");
+        $location.path("/tab/contact");
       })
     };
   };
