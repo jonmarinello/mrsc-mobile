@@ -35,7 +35,7 @@ angular.module('mrsc.controllers', [])
 })
 
 .controller('StartAProjectCtrl', function($scope, DOMAIN, $http, $ionicLoading, $httpParamSerializerJQLike, $location, $ionicPopup) {
-  // Initilize the form's model
+  // Initialize the form's model
   $scope.potential_project = {
   };
 
@@ -61,7 +61,7 @@ angular.module('mrsc.controllers', [])
         // Tell the user it worked
         $ionicPopup.alert({
           title: 'Mission Ridge Software Consulting',
-          template: '<p>Your project request has been successfully saved and a notification has been sent to us.</p><p>We will contact you soon too discuss it.</p><p>Thank you for contacting us!</p>'
+          template: '<p>Your project request has been successfully saved and a notification has been sent to us.</p><p>We will contact you soon to discuss it.</p><p>Thank you for contacting us!</p>'
         });
 
         // Redirect to the home page
@@ -73,7 +73,7 @@ angular.module('mrsc.controllers', [])
         // Tell the user it failed
         $ionicPopup.alert({
           title: 'Mission Ridge Software Consulting',
-          template: '<p>An error occurred and we were unable to save your request.</p><p>Please try contacting us by email, calling or Skype.</p>',
+          template: '<p>An error occurred and we were unable to save your request.</p><p>Please try contacting us by email, calling or Skype.</p>'
         });
 
         // Redirect to the contact page
@@ -84,7 +84,7 @@ angular.module('mrsc.controllers', [])
       // Form validation failed so tell the user
       $ionicPopup.alert({
         title: 'Mission Ridge Software Consulting',
-        template: '<p>One or more errors found while validating your information.</p><p>Please be sure to enter at least a valid <strong>Name</strong>, <strong>Email Address</strong> as well as a description of your <strong>Project Idea</strong> and try again.</p>'
+        template: '<p>One or more errors found while validating your information.</p><p>Please be sure to enter at least a valid <strong>Name</strong>, <strong>Email Address</strong> and <strong>Project Idea</strong> and try again.</p>'
       });
     }
   }
