@@ -114,5 +114,9 @@
 
 /* $ionicPopup Mods */
 .popup-head {
-  background-color: burlywood;
+  background-color: #007aff;
+}
+
+.popup-title {
+  color: white;
 }
