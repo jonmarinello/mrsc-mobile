@@ -98,5 +98,5 @@ angular.module('mrsc', ['ionic', 'mrsc.controllers', 'ngMessages'])
 })
 
 //.constant('DOMAIN', 'http://localhost:3000');
-.constant('DOMAIN', 'http://staging.missionridgeconsulting.com');
-//.constant('DOMAIN', 'http://www.missionridgeconsulting.com');
+//.constant('DOMAIN', 'http://staging.missionridgeconsulting.com');
+.constant('DOMAIN', 'http://www.missionridgeconsulting.com');
