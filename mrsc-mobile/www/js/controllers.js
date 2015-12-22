@@ -1,31 +1,61 @@
 angular.module('mrsc.controllers', [])
 
+.factory('remoteRecommendations', function(DOMAIN, $http, $ionicLoading) {
+  var recommendations;
+
+  return {
+    get: function () {
+      // Put up a busy indicator
+      $ionicLoading.show({template: '<p>Fetching Recommendations...</p><ion-spinner></ion-spinner>'});
+
+      // Get the data
+      return $http.get(DOMAIN + '/pages/get_recommendations.json').then(function (resp) {
+        recommendations = resp.data;
+        // Hide the busy indicator
+        $ionicLoading.hide();
+
+        // Return the result
+        return recommendations;
+      }, function (err) {
+        // If we can't get the recommendations, use this hard coded one (useful for testing during "ionic serve" due to
+        // CSRF issues.
+        recommendations = [
+          {
+            "title": "Fredrik Björk - Vice President of Engineering at The RealReal, November 21, 2015",
+            "body": "Jon is an excellent software engineer who integrates well with existing teams. Jon is easy going, a good listener and understands the needs of the business. I would recommend Jon to anyone looking for a seasoned Ruby on Rails engineer who can hit the ground running for a mission critical project.",
+            "image_url": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/8/000/227/1a5/09b5b2c.jpg"
+          }
+        ];
+
+        // Hide the busy indicator
+        $ionicLoading.hide();
+
+        // Return the result
+        return recommendations;
+      })
+    }
+  }
+})
+
 .controller('HomeCtrl', function($scope) {
 })
 
 .controller('ServicesCtrl', function($scope, $ionicSlideBoxDelegate) {
 })
 
-.controller('AboutCtrl', function($scope, DOMAIN, $http, $ionicLoading) {
-  // Put up a busy indicator
-  $ionicLoading.show({template: '<p>Loading...</p><ion-spinner></ion-spinner>'});
+.controller('AboutCtrl', function($scope, remoteRecommendations) {
+  $scope.doRefresh = function() {
+    remoteRecommendations.get().then(function(recommendations) {
+      $scope.recommendations = recommendations;
+    });
 
-  // Get the data
-  $http.get(DOMAIN + '/pages/get_recommendations.json').then(function(resp) {
-    $scope.recommendations = resp.data;
-    // Hide the busy indicator
-    $ionicLoading.hide();
+    //Stop the ion-refresher from spinning
+    $scope.$broadcast('scroll.refreshComplete');
+  };
 
-  }, function(err) {
-    // If we can't get the recommendations, use this hard coded one (useful for testing during "ionic serve" due to
-    // CSRF issues.
-    $scope.recommendations = [
-      {"title":"Fredrik Björk - Vice President of Engineering at The RealReal, November 21, 2015", "body":"Jon is an excellent software engineer who integrates well with existing teams. Jon is easy going, a good listener and understands the needs of the business. I would recommend Jon to anyone looking for a seasoned Ruby on Rails engineer who can hit the ground running for a mission critical project.", "image_url":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/8/000/227/1a5/09b5b2c.jpg"}
-    ];
-
-    // Hide the busy indicator
-    $ionicLoading.hide();
-  })
+  remoteRecommendations.get().then(function(recommendations) {
+    $scope.recommendations = recommendations;
+  });
 })
 
 .controller('PortfolioCtrl', function($scope) {
@@ -45,7 +75,7 @@ angular.module('mrsc.controllers', [])
       // Put up a busy indicator
       $ionicLoading.show({template: '<p>Saving...</p><ion-spinner></ion-spinner>'});
 
-      // Next the form's model in the required rails object
+      // Nest the form's model in the required rails object
       var railsReadyPotentialProject = {
         potential_project: $scope.potentialProject
       }
