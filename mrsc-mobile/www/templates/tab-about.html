@@ -52,6 +52,7 @@
     <h3 class="title">
       Customer Recommendations
     </h3>
+    <ion-refresher on-refresh="doRefresh()"></ion-refresher>
     <ion-list ng-repeat="recommendation in recommendations">
       <div class="card padding">
         <img class="recommendation-image" ng-src="{{recommendation.image_url}}">
