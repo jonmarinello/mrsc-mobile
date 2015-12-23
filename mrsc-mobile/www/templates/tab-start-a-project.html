@@ -69,56 +69,34 @@
         <h5>
           Project Type (Select all that apply):
         </h5>
-        <ul class="list">
-          <li class="item item-checkbox">
-            <label class="checkbox">
-              <input type="checkbox" ng-model="potentialProject.type_ruby_on_rails_web_development">
-            </label>
-            Ruby on Rails Web Development
-          </li>
 
-          <li class="item item-checkbox">
-            <label class="checkbox">
-              <input type="checkbox" ng-model="potentialProject.type_mobile_app_development">
-            </label>
-            Mobile App Development
-          </li>
+        <ion-toggle ng-model="potentialProject.type_ruby_on_rails_web_development">
+          Ruby on Rails Web Development
+        </ion-toggle>
 
-          <li class="item item-checkbox">
-            <label class="checkbox">
-              <input type="checkbox" ng-model="potentialProject.type_cms_web_development">
-            </label>
-            CMS Web Development
-          </li>
+        <ion-toggle ng-model="potentialProject.type_mobile_app_development">
+          Mobile App Development
+        </ion-toggle>
 
-          <li class="item item-checkbox">
-            <label class="checkbox">
-              <input type="checkbox" ng-model="potentialProject.type_everything_cloud">
-            </label>
-            Everything Cloud
-          </li>
+        <ion-toggle ng-model="potentialProject.type_cms_web_development">
+          CMS Web Development
+        </ion-toggle>
 
-          <li class="item item-checkbox">
-            <label class="checkbox">
-              <input type="checkbox" ng-model="potentialProject.type_ux_prototyping">
-            </label>
-            User Experience Prototyping
-          </li>
+        <ion-toggle ng-model="potentialProject.type_everything_cloud">
+          Everything Cloud
+        </ion-toggle>
 
-          <li class="item item-checkbox">
-            <label class="checkbox">
-              <input type="checkbox" ng-model="potentialProject.type_agile_development">
-            </label>
-            Agile Development
-          </li>
+        <ion-toggle ng-model="potentialProject.type_ux_prototyping">
+          User Experience Prototyping
+        </ion-toggle>
 
-          <li class="item item-checkbox">
-            <label class="checkbox">
-              <input type="checkbox" ng-model="potentialProject.type_other">
-            </label>
-            Other
-          </li>
-        </ul>
+        <ion-toggle ng-model="potentialProject.type_agile_development">
+          Agile Development
+        </ion-toggle>
+
+        <ion-toggle ng-model="potentialProject.type_other">
+          Other
+        </ion-toggle>
 
         <label class="item item-input item-stacked-label">
           <span class="input-label">Additional Information</span>
@@ -135,14 +113,9 @@
           <input type="text" ng-model="potentialProject.heard_about_us" placeholder="Business referral.">
         </label>
 
-        <ul class="list">
-          <li class="item item-checkbox">
-            <label class="checkbox">
-              <input type="checkbox" ng-model="potentialProject.keep_me_updated">
-            </label>
-            Keep me updated with Mission Ridge Software Consulting news
-          </li>
-        </ul>
+        <ion-toggle ng-model="potentialProject.keep_me_updated">
+          Keep me updated
+        </ion-toggle>
 
         <button class="button button-block button-positive" type="submit">
           Submit
