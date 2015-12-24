@@ -6,3 +6,5 @@ platforms/
 plugins/
 
 .idea
+
+my-release-key.keystore
