@@ -53,7 +53,7 @@
 
         <label class="item item-input item-stacked-label" ng-class="{ 'has-errors' : startAProjectForm.project_idea.$invalid, 'no-errors' : startAProjectForm.project_idea.$valid}">
           <span class="input-label">Project Idea *</span>
-          <textarea name="project_idea" ng-model="potentialProject.project_idea" placeholder="I would like to have you build us a website and mobile application." ng-minlength="3" required></textarea>
+          <textarea rows='5' name="project_idea" ng-model="potentialProject.project_idea" placeholder="I would like to have you build us a website and mobile application." ng-minlength="3" required></textarea>
         </label>
         <div class="error-container last-error-container" ng-show="startAProjectForm.project_idea.$error" ng-messages="startAProjectForm.project_idea.$error">
           <div class="error" ng-message="required">
@@ -100,7 +100,7 @@
 
         <label class="item item-input item-stacked-label">
           <span class="input-label">Additional Information</span>
-          <textarea ng-model="potentialProject.additional_info" placeholder="We are a small startup company so cost is a factor for us."></textarea>
+          <textarea rows='5' ng-model="potentialProject.additional_info" placeholder="We are a small startup company so cost is a factor for us."></textarea>
         </label>
 
         <label class="item item-input item-stacked-label">
@@ -114,7 +114,7 @@
         </label>
 
         <ion-toggle ng-model="potentialProject.keep_me_updated">
-          Keep me updated
+          Update Me With MRSC News
         </ion-toggle>
 
         <button class="button button-block button-positive" type="submit">
