@@ -9,8 +9,11 @@
     <ion-slide-box
       does-continue="true"
       slide-interval="6000"
-      show-pager="false"
-      auto-play="true">
+      show-pager="true"
+      auto-play="true"
+      active-slide="activeSlide"
+      on-slide-changed="setSlide($index)"
+      pager-click="setSlide(index)">
 
       <ion-slide>
         <img src="img/services/mobile.png" class="service-image" align="middle">
@@ -104,7 +107,7 @@
           <strong>
             Check out this
             <a href="#" onclick="window.open('http://www.toptal.com/ruby-on-rails/after-two-decades-of-programming-i-use-rails', '_system', 'location=yes'); return false;">great article</a>
-            which should get your juices flowing about a mobile app you could be adding to the Apple or Android marketplace.
+            on why Rails is so popular with the development community.
           </strong>
         </p>
       </ion-slide>

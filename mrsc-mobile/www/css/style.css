@@ -120,3 +120,17 @@
 .popup-title {
   color: white;
 }
+
+/* slide-box overrides */
+.emoji {
+  width: 225px;
+}
+
+.slider {
+  padding-bottom: 10px;
+}
+
+.slider-pager {
+  top: initial;
+  bottom: 2px;
+}

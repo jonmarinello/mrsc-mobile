@@ -5,6 +5,11 @@ angular.module('mrsc.controllers', [])
 
 
   .controller('ServicesCtrl', function($scope) {
+    $scope.activeSlide = 0;
+
+    $scope.setSlide = function(index) {
+      $scope.activeSlide = index;
+    }
   })
 
 
